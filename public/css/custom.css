@@ -49,6 +49,7 @@ a#nav{
 
 a#nav:hover{
   font-weight: bold !important;
+  color: #FF8000 !important;
 }
 
 a#btn-nav{
