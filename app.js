@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = 3001;
+var port = 3000;
 var path = require('path');
 
 
