@@ -44,7 +44,7 @@
 }
 
 a#nav{
-  color: #95bdac !important;
+  color: #00375F !important;
 }
 
 a#nav:hover{
@@ -52,17 +52,16 @@ a#nav:hover{
 }
 
 a#btn-nav{
-  background-color: white;
-  color: #95bdac;
-  border: solid 2px #95bdac;
+  background-color: #00375F;
+  color: white;
+  border: none;
   border-radius: 5px;
   padding: 8px 10px;
   text-decoration: none;
 }
 
 a#btn-nav:hover{
-  background-color: #95bdac;
-  color: white;
+  background-color: #FF8000;
 }
 
 
@@ -70,6 +69,10 @@ a#btn-nav:hover{
 
   body{
     padding-top: 1.5rem !important;
+  }
+
+  #nav-collapse-menu-items {
+    text-align : center !important;
   }
 
   nav .navbar-nav{
