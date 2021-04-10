@@ -14,14 +14,23 @@ app.get('/lobby', function(req, res) {
 app.get('/expositores', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/expositores.html'));
 });
-app.get('/stand', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/stand.html'));
+app.get('/stand-br', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/stand-br.html'));
+});
+app.get('/stand-ar', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/stand-ar.html'));
+});
+app.get('/stand-mx', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/stand-mx.html'));
 });
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/home.html'));
 });
 app.get('/home', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/home.html'));
+});
+app.get('/auditorio', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/auditorio.html'));
 });
 
 app.listen(port, () => {

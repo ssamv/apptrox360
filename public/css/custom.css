@@ -18,6 +18,18 @@
     background-color: rgba(0,0,0,0.6);
 }
 
+.stand-link:hover {
+  background-color: #00375fc2 !important;
+}
+
+.stand-link-2:hover {
+  color: #ffffff !important;
+}
+
+.stand-link-3:hover {
+  color: #00375F !important;
+}
+
 #stand-link:hover {
   color: #95bdac !important;
   border-color:#95bdac !important;
@@ -65,6 +77,45 @@ a#btn-nav:hover{
   background-color: #FF8000;
 }
 
+a#btn-volver{
+  background-color: #00375F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a#btn-volver:hover{
+  background-color: #FF8000;
+}
+
+span#texto-interactio{
+  color: #00375F;
+  border: none;
+  padding: 15px 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a#link-interactio{
+  color: #00375F;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a#link-interactio:hover{
+  color: #FF8000;
+}
+
+a#link-video-auditorio:hover{
+  color: #00375F !important;
+  background-color: #00375f7c !important;
+}
 
 @media only screen and (max-width: 766px) {
 
@@ -80,24 +131,8 @@ a#btn-nav:hover{
     width:100%;
   }
 
-  #div-select-categorias{
-    top:67px !important;
-  }
-
   .btn-control-stand{
     bottom: 15% !important;
-  }
-
-  #btn-fullscreen{
-    right: 28% !important;
-  }
-
-  #btn-exit-fullscreen{
-    right: 28% !important;
-  }
-
-  #btn-collection{
-    left: 28% !important;
   }
 
   @media all and (orientation:landscape) {
@@ -116,6 +151,10 @@ a#btn-nav:hover{
   nav img{
     width:150px;
   }
+}
+
+@media only screen and (max-width: 768px) {
+
 }
 
 @media all and (display-mode: fullscreen) {
