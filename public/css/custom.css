@@ -92,7 +92,7 @@ a#btn-volver:hover{
   background-color: #FF8000;
 }
 
-span#texto-interactio{
+span#texto-slidedown{
   color: #00375F;
   border: none;
   padding: 15px 25px;
@@ -100,7 +100,7 @@ span#texto-interactio{
   font-size: 20px;
 }
 
-a#link-interactio{
+a#link-slidedown{
   color: #00375F;
   border: none;
   text-decoration: none;
@@ -108,7 +108,7 @@ a#link-interactio{
   font-size: 20px;
 }
 
-a#link-interactio:hover{
+a#link-slidedown:hover{
   color: #FF8000;
 }
 
@@ -119,9 +119,6 @@ a#link-video-auditorio:hover{
 
 @media only screen and (max-width: 766px) {
 
-  body{
-    padding-top: 1.5rem !important;
-  }
 
   #nav-collapse-menu-items {
     text-align : center !important;
@@ -135,11 +132,30 @@ a#link-video-auditorio:hover{
     bottom: 15% !important;
   }
 
+  #iframe-vimeo{
+    top: 5% !important;
+    left: 5% !important;
+    width: 90% !important;
+    height: 90% !important;
+  }
+
   @media all and (orientation:landscape) {
     .btn-control-stand{
       bottom: 1% !important;
     }
+    body{
+      padding-top: 3.5rem !important;
+    }
   }
+
+  @media all and (display-mode: fullscreen) {
+    @media all and (orientation: portrait) {
+      #rotate-device{
+        display: block !important;
+      }
+    }
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -153,9 +169,6 @@ a#link-video-auditorio:hover{
   }
 }
 
-@media only screen and (max-width: 768px) {
-
-}
 
 @media all and (display-mode: fullscreen) {
   #btn-fullscreen{

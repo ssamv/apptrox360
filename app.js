@@ -32,7 +32,9 @@ app.get('/home', function(req, res) {
 app.get('/auditorio', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/auditorio.html'));
 });
-
+app.get('/auditorio-live', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/auditorio-play.html'));
+});
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
