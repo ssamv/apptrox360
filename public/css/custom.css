@@ -24,10 +24,12 @@
 
 .stand-link-2:hover {
   color: #ffffff !important;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.329) 20%, rgba(255, 255, 255, 0) 80%);
 }
 
 .stand-link-3:hover {
   color: #00375F !important;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.329) 20%, rgba(255, 255, 255, 0) 80%);
 }
 
 #stand-link:hover {
@@ -97,7 +99,7 @@ span#texto-slidedown{
   border: none;
   padding: 15px 25px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 a#link-slidedown{
@@ -147,15 +149,6 @@ a#link-video-auditorio:hover{
       padding-top: 3.5rem !important;
     }
   }
-
-  @media all and (display-mode: fullscreen) {
-    @media all and (orientation: portrait) {
-      #rotate-device{
-        display: block !important;
-      }
-    }
-  }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -164,9 +157,6 @@ a#link-video-auditorio:hover{
     display: inline-flex;
   }
 
-  nav img{
-    width:150px;
-  }
 }
 
 
@@ -177,5 +167,11 @@ a#link-video-auditorio:hover{
 
   #btn-exit-fullscreen{
     display: block !important;
+  }
+
+  @media all and (orientation: portrait) {
+    #rotate-device{
+      display: block !important;
+    }
   }
 }
