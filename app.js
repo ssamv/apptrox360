@@ -1,40 +1,47 @@
-var express = require('express');
-var app = express();
-var port = 3000;
-var path = require('path');
+const express = require('express'),
+      morgan = require('morgan'),
+      mysql = require('mysql'),
+      myConnection = require('express-myconnection'),
+      ejs = require('ejs'),
+      session = require('express-session');
 
+const app = express();
+const port = 3001;
+const path = require('path');
+
+app.set('views', __dirname + '/views')
+app.engine('ejs', ejs.renderFile);
+app.set('view engine', 'ejs');
+
+// importing routes
+const mainRoutes = require('./routes/main');
+
+
+// middlewares
+app.use(morgan('dev'));
+app.use(myConnection(mysql, {
+  host: '45.239.111.90',
+  user: 'troxcom_seba',
+  password: 'Trox$Swaper$2021',
+  database: 'troxcom_bd',
+  port: 3306
+}, 'single'));
+app.use(express.urlencoded({extended: true}));
+
+//session
+app.use(session({
+  secret: 'Trox$Swaper$2021',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// routes
+app.use('/', mainRoutes);
 
 // archivos estaticos img/css/js
 app.use(express.static('public'));
 
-// routes
-app.get('/lobby', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/lobby.html'));
-});
-app.get('/expositores', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/expositores.html'));
-});
-app.get('/stand-br', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/stand-br.html'));
-});
-app.get('/stand-ar', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/stand-ar.html'));
-});
-app.get('/stand-mx', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/stand-mx.html'));
-});
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/home.html'));
-});
-app.get('/home', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/home.html'));
-});
-app.get('/auditorio', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/auditorio.html'));
-});
-app.get('/auditorio-live', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/auditorio-play.html'));
-});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })

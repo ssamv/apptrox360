@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- Basic Conf/Desc -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">	
+    <title>TROX 360</title>	
+    <meta name="keywords" content="trox360"/>
+    <meta name="description" content="Evento">
+    <meta name="author" content="Sebastian Muñoz">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#" />
+    <link rel="apple-touch-icon" href="#">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- CSS Icons-->
+    <link rel="stylesheet" href="lib/bootstrap/css_icons/bootstrap-icons.css">
+
+    <!-- JS -->
+    <script src="lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  </head>
+
+  <body style="padding-top: 3.5rem;">
+      <!-- Modal -->
+    <div class="modal fade" id="mi-perfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Mi perfíl</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-left">
+            Email: <strong><%= data.email %></strong><br>
+            Nombre/Nome: <strong><%= data.firstname %></strong><br>
+            Apellido/Sobrenome: <strong><%= data.lastname %></strong><br>
+            País: <strong><%= data.country %></strong><br>
+            Ciudad/Cidade: <strong><%= data.city %></strong><br>
+            Empresa: <strong><%= data.company %></strong><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand p-0" href="/lobby" style="float:left;"><img src="img/logo_trox360.png" width="150px"/></a>            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pt-2 pb-2" id="navbarCollapse">
+              <div id="#nav-collapse-menu-items" class="text-end" style="display: inline-block; width:100%;">
+                <ul class="navbar-nav mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <a id="nav" class="nav-link text-dark" href="/lobby">Lobby</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="nav" class="nav-link" href="/auditorio">Auditorio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="nav" class="nav-link" href="https://www.trox360.com/agenda/" target="_blank">Agenda</a>
+                  </li>
+                </ul>
+                  <a id="btn-nav" class="" href="/pdf/TROX_360_TUTORIAL.pdf" target="_blank">Tutorial</a>
+                  <a id="btn-nav" class="" href="#mi-perfil" data-bs-toggle="modal">Mi perfíl</a>
+                  <a id="btn-nav" class="" href="/logout">Salir</a>
+              </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header style="position:relative; top:14px;">
+      <div style="background-color: #00375F;">
+        <div class="container pt-5 pb-2">
+          <div class="row featurette mb-3">
+            <div class="col-md-12 text-center">
+              <h1 class="featurette-heading fw-bold"  style="color: #FF8000;">Auditorio <span class="text-light fw-bold">TROX 360</span></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main style="position:relative; top:14px;" id="#auditorio">
+        <div class="album py-5">
+          <div class="container">
+            <div class="row g-3 text-center">
+              <div class="col-sm-12" style="position: relative; perspective: 1000px;">
+                <img src="img/auditorio.jpg" width="100%" height="auto" style="border: none; padding: 0; border-radius: 15px;"/>
+                <a id="link-video-auditorio" href="/auditorio-live" style="color: #00375f7c; position: absolute; top: 37.3%; left:37.3%; width:25.7%; height:26.4%; background-color: rgba(255, 255, 255, 0); 
+                          transform-style: preserve-3d;transform: rotateX(-17deg); display: inline-block; text-align: center !important;">
+                   <table style="width: 100%; height: 100%;"><tbody><tr><td class="align-middle">
+                    <i class="bi bi-play-circle" style="width:100%; line-height: 0px !important; font-size: 11vw; display: inline-block; position: relative;"></i>
+                   </td></tr></tbody></table>
+                </a>
+              </div>
+              <br>
+              <diV class="col-sm-12 text-center mt-2 mb-2">
+                <a id="btn-volver" class="" href="/lobby" style="width:300px; display:inline-block;">Lobby</a>
+              </diV>
+            </div>
+          </div>
+          <!--<hr class="featurette-divider">-->
+        </div>
+        
+    </main>
+
+
+    <footer style="position:relative; top:14px; background-color: #00375F;" class="footer py-3">
+        <div class="container">
+          <span class="text-light">Evento TROX 360 15 de Abril</span>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            $( ".link-interactio" ).each(function(){
+                $(this).click(function() {
+                    $( "#div-interactio" ).slideToggle( "slow"); 
+                });
+            });
+        });
+    </script>
+  </body>
+</html>

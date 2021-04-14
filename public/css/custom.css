@@ -23,12 +23,12 @@
 }
 
 .stand-link-2:hover {
-  color: #ffffff !important;
+  color: #ffffffcb !important;
   background-image: radial-gradient(rgba(255, 255, 255, 0.329) 20%, rgba(255, 255, 255, 0) 80%);
 }
 
 .stand-link-3:hover {
-  color: #00375F !important;
+  color: #00375fc2 !important;
   background-image: radial-gradient(rgba(255, 255, 255, 0.329) 20%, rgba(255, 255, 255, 0) 80%);
 }
 
