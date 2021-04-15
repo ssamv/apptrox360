@@ -6,7 +6,7 @@ const express = require('express'),
       session = require('express-session');
 
 const app = express();
-const port = 3005;
+const port = 3000;
 const path = require('path');
 
 app.set('views', __dirname + '/views')
