@@ -16,82 +16,32 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.render('home',{
-            denied: false
-          });
-    }else{
-        res.render('lobby',{
-            data: user
-        });
-    }
+        res.render('lobby');
 });
 
 router.get('/lobby', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('lobby',{
-            data: user
-        });
-    }
+    res.render('lobby');
 });
 
 router.get('/auditorio', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('auditorio',{
-            data: user
-        });
-    }
+    res.render('auditorio');
 });
 
 router.get('/auditorio-live', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('auditorio-play',{
-            data: user
-        });
-    }
+
+        res.render('auditorio-play');
 });
 
 router.get('/stand-br', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('stand-br',{
-            data: user
-        });
-    }
+    res.render('stand-br');
 });
 
 router.get('/stand-ar', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('stand-ar',{
-            data: user
-        });
-    }
+    res.render('stand-ar');
 });
 
 router.get('/stand-mx', function(req, res) {
-    var user = req.session.user;
-    if (user === undefined){
-        res.redirect('/');
-    }else{
-        res.render('stand-mx',{
-            data: user
-        });
-    }
+    res.render('stand-mx');
 });
 
 

@@ -128,11 +128,9 @@
               clearInterval(timer);
               document.getElementById('countdown').innerHTML = '<strong>O EVENTO JÁ COMEÇOU!<br><span style="font-size: 13px;">YA COMENZO EL EVENTO!</span></strong>';
               $('#countdown-title').css("display","none");
-              $("#ingresar").attr("disabled",false);
               return;
           }
           else{
-            $("#ingresar").attr("disabled",true);
             var days = Math.floor(distance / _day);
             var hours = Math.floor((distance % _day) / _hour);
             var minutes = Math.floor((distance % _hour) / _minute);

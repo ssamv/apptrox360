@@ -42,28 +42,6 @@
 
   <body style="padding-top: 3.5rem;">
       <!-- Modal -->
-    <div class="modal fade" id="mi-perfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Mi perfíl</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-left">
-            Email: <strong><%= data.email %></strong><br>
-            Nombre/Nome: <strong><%= data.firstname %></strong><br>
-            Apellido/Sobrenome: <strong><%= data.lastname %></strong><br>
-            País: <strong><%= data.country %></strong><br>
-            Ciudad/Cidade: <strong><%= data.city %></strong><br>
-            Empresa: <strong><%= data.company %></strong><br>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light p-0">
@@ -86,8 +64,6 @@
                   </li>
                 </ul>
                 <a id="btn-nav" class="" href="/pdf/TROX_360_TUTORIAL.pdf" target="_blank">Tutorial</a>
-                <a id="btn-nav" class="" href="#mi-perfil" data-bs-toggle="modal">Meu perfil/Mi perfíl</a>
-                <a id="btn-nav" class="" href="/logout">Sair/Salir</a>
               </div>
             </div>
         </div>
@@ -111,7 +87,7 @@
             <div class="row g-3 text-center">
               <div class="col-sm-12" style="position: relative; perspective: 1000px;">
                 <img src="img/auditorio.jpg" width="100%" height="auto" style="border: none; padding: 0; border-radius: 15px;"/>
-                <iframe id="iframe-vimeo" src="https://vimeo.com/event/886077/embed" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen 
+                <iframe id="iframe-vimeo" src="https://player.vimeo.com/video/537367185" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen 
                         style="position: absolute; top: 10%; left:10%; width:80%; height:80%; background-color: rgba(255, 255, 255, 0); 
                                 display: inline-block; text-align: center !important;">
                 </iframe>
@@ -126,7 +102,7 @@
                     <a id="link-slidedown" class="link-chat-vimeo" href="javascript: void(0);"style="width:100%; display:inline-block;">
                         Ocultar
                     </a>
-                    <iframe id="iframe-interactio" src="https://vimeo.com/event/886077/chat/"
+                    <iframe id="iframe-interactio" src="https://vimeo.com/live-chat/537367185/"
                     style="width:100%; height:400px; padding: 0; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
                     </iframe>
                     <a id="link-slidedown" class="link-chat-vimeo" href="javascript: void(0);"style="width:100%; display:inline-block;">
@@ -194,16 +170,6 @@
             });
         });
 
-        function saveTime(){
-          $.post("/save-time-auditorio",
-          {id: <%=data.id%>}, function(data){
-            if (data){
-              console.log("SUCESS"+data);
-            }else{
-              console.log("ERROR");
-            }
-          });
-        }
 
         setInterval(saveTime,60000);
     </script>
