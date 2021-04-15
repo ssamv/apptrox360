@@ -2,12 +2,16 @@ const controller = {};
 
 controller.login = (req, res) => {
     const email  = req.body.email;
-    console.log(email);
     req.getConnection((err, conn) => {
       conn.query('SELECT * FROM table_user WHERE email = ?', [email], (err, rows) => {
         if(rows!=undefined){
             if (rows.length>0){
                 req.session.user = rows[0];
+                conn.query('INSERT INTO table_session VALUES (NULL,?,?)', [rows[0].id,new Date()], (err, insert_r) => {
+                  if (err) {
+                      console.log(err);
+                    }
+                });
                 res.redirect('/lobby');
             }else{
                 res.render('home', {
@@ -29,7 +33,6 @@ controller.list = (req, res) => {
      if (err) {
       res.json(err);
      }
-     console.log(customers[0]);
      res.render('home', {
         data: customers[0]
      });
@@ -37,10 +40,41 @@ controller.list = (req, res) => {
   });
 };
 
+controller.saveStandView = (req, res) => {
+  var id = req.body.id;
+  var times = 1;
+  var id_stand = req.body.id_stand;
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM stand_view WHERE id_user = ? AND id_stand = ?', [id, id_stand], (err, rows) => {
+      if(rows!=undefined){
+          if (rows.length>0){
+            times = times + rows[0].views_count;
+            conn.query('UPDATE stand_view set views_count = ?, date_time_update = ? where id_user = ? AND id_stand = ?', [times, new Date(), id, id_stand], (err, update_r) => {
+              if (err) {
+                console.log(err);
+               }
+               res.send("update");
+            });
+          }else{
+            conn.query('INSERT INTO stand_view VALUES (NULL,?,?,?,?,?)', [id,id_stand,times,new Date(),new Date()], (err, insert_r) => {
+              if (err) {
+                console.log(err);
+               }
+               res.send("insert");
+            });
+          }
+      }else{
+        if (err) {
+          res.json(err);
+         }
+      }
+    });
+  })
+};
+
 controller.saveTimeAuditorio = (req, res) => {
   var id = req.body.id;
   var minutes = 1;
-  console.log(req.body.id);
   req.getConnection((err, conn) => {
     conn.query('SELECT * FROM time_in_transmission_one WHERE id_user = ?', [id], (err, rows) => {
       if(rows!=undefined){
@@ -49,13 +83,15 @@ controller.saveTimeAuditorio = (req, res) => {
             conn.query('UPDATE time_in_transmission_one set minutes = ?, date_time_update = ? where id_user = ?', [minutes, new Date(), id], (err, update_r) => {
               if (err) {
                 console.log(err);
-               }console.log("update");
+               }
+               res.send("update");
             });
           }else{
             conn.query('INSERT INTO time_in_transmission_one VALUES (NULL,?,?,?,?)', [id,minutes,new Date(),new Date()], (err, insert_r) => {
               if (err) {
                 console.log(err);
-               }console.log("insert");
+               }
+               res.send("insert");
             });
           }
       }else{

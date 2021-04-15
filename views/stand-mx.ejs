@@ -29,6 +29,16 @@
     <!-- JS -->
     <script src="lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9GFGNEZRP"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+    
+          gtag('config', 'G-J9GFGNEZRP');
+        </script>
     
   </head>
 
@@ -97,6 +107,10 @@
         
         <table style="width:100%; min-height: 400px;"><tbody><tr class="align-middle"><td>
         <div style="position:relative;" id="div-stands">
+          <div id="rotate-device" class="text-center" style="background-color: white; display: none; position: absolute; z-index: 9999; top: 0; left: 0; height:100%">
+            <h2>Favor posicionar horizontalmente su smartphone para visualizar correctamente el stand</h2><br><br>
+            <img src="img/rotatedevice.gif" width="50%" height="auto"/>
+          </div>
           
           <div id="div-img-stand" style="position: relative;">
             <img src="img/false-stand-desktop.png" width="100%" height="auto">
@@ -171,6 +185,19 @@
 
     <script>
       var div_stands = document.getElementById("div-stands");
+
+      function saveView(){
+          $.post("/save-stand-view",
+          {id: <%=data.id%> , id_stand: 3}, function(data){
+            if (data){
+              console.log("SUCESS"+data);
+            }else{
+              console.log("ERROR");
+            }
+          });
+        }
+
+      saveView();
 
       $(function(){
 

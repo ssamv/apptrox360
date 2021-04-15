@@ -4,6 +4,7 @@ const mainController = require('../controllers/mainController');
 
 router.post('/login', mainController.login);
 router.post('/save-time-auditorio', mainController.saveTimeAuditorio);
+router.post('/save-stand-view', mainController.saveStandView);
 
 router.get('/logout', function(req, res) {
     req.session.destroy((err) => {
@@ -15,9 +16,16 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    res.render('home',{
-        denied: false
-      });
+    var user = req.session.user;
+    if (user === undefined){
+        res.render('home',{
+            denied: false
+          });
+    }else{
+        res.render('lobby',{
+            data: user
+        });
+    }
 });
 
 router.get('/lobby', function(req, res) {
