@@ -99,7 +99,7 @@
 
     <script>
 
-      var end = new Date('2021/04/14 15:30');
+      var end = new Date('2021/04/15 15:30');
 
       var _second = 1000;
       var _minute = _second * 60;
@@ -128,8 +128,7 @@
             var minutes = Math.floor((distance % _hour) / _minute);
             var seconds = Math.floor((distance % _minute) / _second);
 
-            document.getElementById('countdown').innerHTML = days + ' dias, ';
-            document.getElementById('countdown').innerHTML += hours + ' horas, ';
+            document.getElementById('countdown').innerHTML = hours + ' horas, ';
             document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
             document.getElementById('countdown').innerHTML += seconds + ' segundos';
           }
