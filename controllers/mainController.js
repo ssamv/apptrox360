@@ -36,6 +36,37 @@ controller.list = (req, res) => {
     });
   });
 };
+
+controller.saveTimeAuditorio = (req, res) => {
+  var id = req.body.id;
+  var minutes = 1;
+  console.log(req.body.id);
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM time_in_transmission_one WHERE id_user = ?', [id], (err, rows) => {
+      if(rows!=undefined){
+          if (rows.length>0){
+            minutes = minutes + rows[0].minutes;
+            conn.query('UPDATE time_in_transmission_one set minutes = ?, date_time_update = ? where id_user = ?', [minutes, new Date(), id], (err, update_r) => {
+              if (err) {
+                console.log(err);
+               }console.log("update");
+            });
+          }else{
+            conn.query('INSERT INTO time_in_transmission_one VALUES (NULL,?,?,?,?)', [id,minutes,new Date(),new Date()], (err, insert_r) => {
+              if (err) {
+                console.log(err);
+               }console.log("insert");
+            });
+          }
+      }else{
+        if (err) {
+          res.json(err);
+         }
+      }
+    });
+  })
+};
+
 /*
 controller.save = (req, res) => {
   const data = req.body;

@@ -6,7 +6,7 @@ const express = require('express'),
       session = require('express-session');
 
 const app = express();
-const port = 3000;
+const port = 3005;
 const path = require('path');
 
 app.set('views', __dirname + '/views')
@@ -20,11 +20,11 @@ const mainRoutes = require('./routes/main');
 // middlewares
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
-  host: '45.239.111.90',
-  user: 'troxcom_seba',
+  host: 'mysql-27691-0.cloudclusters.net',
+  user: 'admin_trox',
   password: 'Trox$Swaper$2021',
-  database: 'troxcom_bd',
-  port: 3306
+  database: 'trox360_db',
+  port: 27691
 }, 'single'));
 app.use(express.urlencoded({extended: true}));
 

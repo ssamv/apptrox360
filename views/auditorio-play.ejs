@@ -182,6 +182,19 @@
                 });
             });
         });
+
+        function saveTime(){
+          $.post("/save-time-auditorio",
+          {id: <%=data.id%>}, function(data){
+            if (data){
+              console.log("SUCESS");
+            }else{
+              console.log("ERROR");
+            }
+          });
+        }
+
+        setInterval(saveTime,5000);
     </script>
   </body>
 </html>

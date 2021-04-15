@@ -3,6 +3,7 @@ const router = require('express').Router();
 const mainController = require('../controllers/mainController');
 
 router.post('/login', mainController.login);
+router.post('/save-time-auditorio', mainController.saveTimeAuditorio);
 
 router.get('/logout', function(req, res) {
     req.session.destroy((err) => {
